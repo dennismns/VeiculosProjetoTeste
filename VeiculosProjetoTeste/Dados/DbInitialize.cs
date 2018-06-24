@@ -36,6 +36,23 @@ namespace VeiculosProjetoTeste.Dados
 
 
 
+			var CarroAcessorios = new CarroAcessorio[]
+			{
+			new CarroAcessorio{CarroId=1,AcessorioId=2},
+			new CarroAcessorio{CarroId=2,AcessorioId=3},
+			new CarroAcessorio{CarroId=3,AcessorioId=2},
+			new CarroAcessorio{CarroId=4,AcessorioId=4},
+			new CarroAcessorio{CarroId=5,AcessorioId=6},
+			new CarroAcessorio{CarroId=6,AcessorioId=5},
+			new CarroAcessorio{CarroId=7,AcessorioId=7},
+			new CarroAcessorio{CarroId=8,AcessorioId=2}
+			};
+			foreach (CarroAcessorio ca in CarroAcessorios)
+			{
+				context.CarroAcessorios.Add(ca);
+			}
+			context.SaveChanges();
+
 			var Acessorios = new Acessorio[]
 			{
 			new Acessorio{Nome="Tapete"},
@@ -44,7 +61,8 @@ namespace VeiculosProjetoTeste.Dados
 			new Acessorio{Nome="Mutimidia"},
 			new Acessorio{Nome="Alarme"},
 			new Acessorio{Nome="Trava"},
-			
+			new Acessorio{Nome="vidro eletrico"},
+			new Acessorio{Nome="vidro eletrico"}
 			};
 			foreach (Acessorio a in Acessorios)
 			{

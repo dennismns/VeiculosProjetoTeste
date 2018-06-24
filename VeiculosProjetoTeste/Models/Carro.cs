@@ -19,7 +19,7 @@ namespace VeiculosProjetoTeste.Models
 
 		public string Cor { get; set; }
 
-		public ICollection<CarroAcessorio> Acessorios { get; set; }
+		public ICollection<CarroAcessorio> CarrosAcessorios { get; set; }
 		//public virtual ICollection<Acessorio> Acessorios { get; set; }
 
 		public Carro()

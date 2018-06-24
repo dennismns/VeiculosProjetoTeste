@@ -10,8 +10,8 @@ using VeiculosProjetoTeste.Dados;
 namespace VeiculosProjetoTeste.Migrations
 {
     [DbContext(typeof(DadosContext))]
-    [Migration("20180623004813_Inicial002")]
-    partial class Inicial002
+    [Migration("20180624205002_Inicial01")]
+    partial class Inicial01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,7 +30,7 @@ namespace VeiculosProjetoTeste.Migrations
 
                     b.HasIndex("AcessorioId");
 
-                    b.ToTable("CarroAcessorio");
+                    b.ToTable("CarroAcessorios");
                 });
 
             modelBuilder.Entity("VeiculosProjetoTeste.Models.Acessorio", b =>
@@ -79,12 +79,12 @@ namespace VeiculosProjetoTeste.Migrations
             modelBuilder.Entity("VeiculosProjetoTeste.Dados.CarroAcessorio", b =>
                 {
                     b.HasOne("VeiculosProjetoTeste.Models.Acessorio", "Acessorio")
-                        .WithMany("Carros")
+                        .WithMany("CarroAcessorios")
                         .HasForeignKey("AcessorioId")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("VeiculosProjetoTeste.Models.Carro", "Carro")
-                        .WithMany("Acessorios")
+                        .WithMany("CarrosAcessorios")
                         .HasForeignKey("CarroId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

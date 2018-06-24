@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VeiculosProjetoTeste.Migrations
 {
-    public partial class Inicial : Migration
+    public partial class Inicial01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,24 +38,23 @@ namespace VeiculosProjetoTeste.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CarroAcessorio",
+                name: "CarroAcessorios",
                 columns: table => new
                 {
-                    CarroAcessorioId = table.Column<int>(nullable: false),
                     CarroId = table.Column<int>(nullable: false),
                     AcessorioId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarroAcessorio", x => new { x.CarroId, x.AcessorioId });
+                    table.PrimaryKey("PK_CarroAcessorios", x => new { x.CarroId, x.AcessorioId });
                     table.ForeignKey(
-                        name: "FK_CarroAcessorio_Acessorio_AcessorioId",
+                        name: "FK_CarroAcessorios_Acessorio_AcessorioId",
                         column: x => x.AcessorioId,
                         principalTable: "Acessorio",
                         principalColumn: "AcessorioId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_CarroAcessorio_Carro_CarroId",
+                        name: "FK_CarroAcessorios_Carro_CarroId",
                         column: x => x.CarroId,
                         principalTable: "Carro",
                         principalColumn: "CarroId",
@@ -63,15 +62,15 @@ namespace VeiculosProjetoTeste.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CarroAcessorio_AcessorioId",
-                table: "CarroAcessorio",
+                name: "IX_CarroAcessorios_AcessorioId",
+                table: "CarroAcessorios",
                 column: "AcessorioId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CarroAcessorio");
+                name: "CarroAcessorios");
 
             migrationBuilder.DropTable(
                 name: "Acessorio");

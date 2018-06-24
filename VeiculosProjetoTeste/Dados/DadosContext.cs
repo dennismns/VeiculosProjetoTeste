@@ -18,29 +18,32 @@ namespace VeiculosProjetoTeste.Dados
 
 		public DbSet<Acessorio> Acessorios { get; set; }
 
+		public DbSet<CarroAcessorio> CarroAcessorios { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-
 			modelBuilder.Entity<Carro>().ToTable("Carro");
 
 			modelBuilder.Entity<Acessorio>().ToTable("Acessorio");
 
-			modelBuilder.Entity<Carro>()
-				.HasKey(x => x.CarroId);
+			//modelBuilder.Entity<Carro>()
+			//	.HasKey(x => x.CarroId);
 
-			modelBuilder.Entity<Acessorio>()
-				.HasKey(x => x.AcessorioId);
+			//modelBuilder.Entity<Acessorio>()
+			//	.HasKey(x => x.AcessorioId);
+			modelBuilder.Entity<CarroAcessorio>()
+				.HasKey(ca => new { ca.CarroId, ca.AcessorioId });
+			//modelBuilder.Entity<CarroAcessorio>()
+			//	.HasKey(x => new { x.fk_CarroId, x.fk_AcessorioId });
+			modelBuilder.Entity<CarroAcessorio>()
+				.HasOne<Carro>(ca => ca.Carro)
+				.WithMany(c => c.CarrosAcessorios)
+				.HasForeignKey(ca => ca.CarroId);
+
 
 			modelBuilder.Entity<CarroAcessorio>()
-				.HasKey(x => new { x.CarroId, x.AcessorioId });
-			modelBuilder.Entity<CarroAcessorio>()
-				.HasOne(x => x.Carro)
-				.WithMany(m => m.Acessorios)
-				.HasForeignKey(x => x.CarroId);
-			modelBuilder.Entity<CarroAcessorio>()
-				.HasOne(x => x.Acessorio)
-				.WithMany(e => e.Carros)
+				.HasOne<Acessorio>(ac => ac.Acessorio)
+				.WithMany(a => a.CarroAcessorios)
 				.HasForeignKey(x => x.AcessorioId);
 
 
@@ -62,7 +65,7 @@ namespace VeiculosProjetoTeste.Dados
 
 			modelBuilder.Entity<Carro>()
 				.Property(c => c.DataCompra)
-				.HasColumnName("DataCompra")				
+				.HasColumnName("DataCompra")
 				.IsRequired();
 
 			modelBuilder.Entity<Carro>()
@@ -73,7 +76,7 @@ namespace VeiculosProjetoTeste.Dados
 			modelBuilder.Entity<Acessorio>()
 				.Property(c => c.AcessorioId)
 				.HasColumnName("AcessorioId");
-				
+
 			modelBuilder.Entity<Acessorio>()
 				.Property(c => c.Nome)
 				.HasColumnName("Nome")

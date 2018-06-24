@@ -14,7 +14,7 @@ namespace VeiculosProjetoTeste.Models
 		public int AcessorioId { get; set; }
 
 		public string Nome { get; set; }
-		public ICollection<CarroAcessorio> Carros { get; set; }
+		public ICollection<CarroAcessorio> CarroAcessorios { get; set; }
 
 		public Acessorio()
 		{
