@@ -10,7 +10,7 @@ using VeiculosProjetoTeste.Dados;
 namespace VeiculosProjetoTeste.Migrations
 {
     [DbContext(typeof(DadosContext))]
-    [Migration("20180624205002_Inicial01")]
+    [Migration("20180624225142_Inicial01")]
     partial class Inicial01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -22,7 +22,11 @@ namespace VeiculosProjetoTeste.Controllers
         // GET: Carros
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Carros.ToListAsync());
+			//var carro = (from a in _context.Acessorios
+			//			 from c in _context.Carros
+			//			 select new { c.Marca, c.DataCompra.Date, c.Descricao, c.Cor, a.Nome });
+			//return View(await carros);
+			return View(await _context.Carros.ToListAsync());
         }
 
         // GET: Carros/Details/5
@@ -32,10 +36,11 @@ namespace VeiculosProjetoTeste.Controllers
             {
                 return NotFound();
             }
+			
 
-            var carro = await _context.Carros
-                .SingleOrDefaultAsync(m => m.CarroId == id);
-            if (carro == null)
+			var carro = await _context.Carros
+				.SingleOrDefaultAsync(m => m.CarroId == id);
+			if (carro == null)
             {
                 return NotFound();
             }

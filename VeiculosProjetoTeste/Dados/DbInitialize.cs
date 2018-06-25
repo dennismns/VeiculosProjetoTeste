@@ -12,7 +12,7 @@ namespace VeiculosProjetoTeste.Dados
         {
             context.Database.EnsureCreated();
 
-            if (context.Carros.Any())
+            if (context.Carros.Any() && context.Acessorios.Any() && context.CarroAcessorios.Any())
             {
                 return;
             }
@@ -35,23 +35,8 @@ namespace VeiculosProjetoTeste.Dados
             context.SaveChanges();
 
 
+			
 
-			var CarroAcessorios = new CarroAcessorio[]
-			{
-			new CarroAcessorio{CarroId=1,AcessorioId=2},
-			new CarroAcessorio{CarroId=2,AcessorioId=3},
-			new CarroAcessorio{CarroId=3,AcessorioId=2},
-			new CarroAcessorio{CarroId=4,AcessorioId=4},
-			new CarroAcessorio{CarroId=5,AcessorioId=6},
-			new CarroAcessorio{CarroId=6,AcessorioId=5},
-			new CarroAcessorio{CarroId=7,AcessorioId=7},
-			new CarroAcessorio{CarroId=8,AcessorioId=2}
-			};
-			foreach (CarroAcessorio ca in CarroAcessorios)
-			{
-				context.CarroAcessorios.Add(ca);
-			}
-			context.SaveChanges();
 
 			var Acessorios = new Acessorio[]
 			{
@@ -67,6 +52,25 @@ namespace VeiculosProjetoTeste.Dados
 			foreach (Acessorio a in Acessorios)
 			{
 				context.Acessorios.Add(a);
+			}
+			context.SaveChanges();
+
+
+
+			var CarroAcessorios = new CarroAcessorio[]
+			{
+			new CarroAcessorio{CarroId=1,AcessorioId=2},
+			new CarroAcessorio{CarroId=2,AcessorioId=3},
+			new CarroAcessorio{CarroId=3,AcessorioId=2},
+			new CarroAcessorio{CarroId=4,AcessorioId=4},
+			new CarroAcessorio{CarroId=5,AcessorioId=6},
+			new CarroAcessorio{CarroId=6,AcessorioId=5},
+			new CarroAcessorio{CarroId=7,AcessorioId=7},
+			new CarroAcessorio{CarroId=8,AcessorioId=2}
+			};
+			foreach (CarroAcessorio ca in CarroAcessorios)
+			{
+				context.CarroAcessorios.Add(ca);
 			}
 			context.SaveChanges();
 

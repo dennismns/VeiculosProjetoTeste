@@ -12,18 +12,23 @@
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Marca)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DataCompra)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Descricao)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Cor)
-                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cor)
+            </th>
+
+            <th>
+                @*@Html.DisplayNameFor(model => model.Select(ac=>ac.))*@Acessorio
+            </th>
+
             <th></th>
         </tr>
     </thead>
@@ -42,6 +47,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Cor)
             </td>
+
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.CarroId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.CarroId">Details</a> |

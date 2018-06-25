@@ -16,6 +16,7 @@ namespace VeiculosProjetoTeste.Dados
 
 		public CarroAcessorio()
 		{
+			
 
 		}
 	}

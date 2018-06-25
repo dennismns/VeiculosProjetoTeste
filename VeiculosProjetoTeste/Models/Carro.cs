@@ -24,7 +24,7 @@ namespace VeiculosProjetoTeste.Models
 
 		public Carro()
 		{
-			//Acessorios = new Collection<Acessorio>();
+			CarrosAcessorios = new Collection<CarroAcessorio>();
 		}
 	}
 }
